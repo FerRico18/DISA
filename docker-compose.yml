@@ -3,7 +3,7 @@ version: '3.8'
 services:
   # Servicio de Inventario
   inventario-api:
-    build: ./services/inventario/backend
+    build: ./Servicios/inventario/backend
     ports:
       - "8001:8000"
     depends_on:
@@ -27,7 +27,7 @@ services:
 
   # Servicio de Empleados
   empleados-api:
-    build: ./services/empleados/backend
+    build: ./Servicios/empleados/backend
     ports:
       - "8002:8000"
     depends_on:
@@ -51,7 +51,7 @@ services:
 
   # Servicio de Resguardos
   resguardos-api:
-    build: ./services/resguardos/backend
+    build: ./Servicios/resguardos/backend
     ports:
       - "8003:8000"
     depends_on:
@@ -75,7 +75,7 @@ services:
 
   # Servicio de Usuarios / Auth
   auth-api:
-    build: ./services/auth/backend
+    build: ./Servicios/auth/backend
     ports:
       - "8004:8000"
     depends_on:
