@@ -1,0 +1,104 @@
+version: '3.8'
+
+services:
+  # Servicio de Inventario
+  inventario-api:
+    build: ./services/inventario/backend
+    ports:
+      - "8001:8000"
+    depends_on:
+      - inventario-db
+    environment:
+      - DB_HOST=inventario-db
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=disahp
+      - DB_NAME=inventarioServicio_DISA
+
+  inventario-db:
+    image: postgres:14
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: disahp
+      POSTGRES_DB: inventarioServicio_DISA
+    volumes:
+      - inventario_data:/var/lib/postgresql/data
+
+  # Servicio de Empleados
+  empleados-api:
+    build: ./services/empleados/backend
+    ports:
+      - "8002:8000"
+    depends_on:
+      - empleados-db
+    environment:
+      - DB_HOST=empleados-db
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=disahp
+      - DB_NAME=empleadoServicio_DISA
+
+  empleados-db:
+    image: postgres:14
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: disahp
+      POSTGRES_DB: empleadoServicio_DISA
+    volumes:
+      - empleados_data:/var/lib/postgresql/data
+
+  # Servicio de Resguardos
+  resguardos-api:
+    build: ./services/resguardos/backend
+    ports:
+      - "8003:8000"
+    depends_on:
+      - resguardos-db
+    environment:
+      - DB_HOST=resguardos-db
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=disahp
+      - DB_NAME=resguardoServicio_DISA
+
+  resguardos-db:
+    image: postgres:14
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: disahp
+      POSTGRES_DB: resguardoServicio_DISA
+    volumes:
+      - resguardos_data:/var/lib/postgresql/data
+
+  # Servicio de Usuarios / Auth
+  auth-api:
+    build: ./services/auth/backend
+    ports:
+      - "8004:8000"
+    depends_on:
+      - auth-db
+    environment:
+      - DB_HOST=auth-db
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=disahp
+      - DB_NAME=usuarioServicio_DISA
+
+  auth-db:
+    image: postgres:14
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: disahp
+      POSTGRES_DB: usuarioServicio_DISA
+    volumes:
+      - auth_data:/var/lib/postgresql/data
+
+volumes:
+  inventario_data:
+  empleados_data:
+  resguardos_data:
+  auth_data:
