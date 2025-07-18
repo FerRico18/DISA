@@ -1,0 +1,97 @@
+# Sistema Interno DISA
+
+Sistema web para la automatización de procesos internos de la empresa DISA, especializada en distribución de equipos y accesorios para organizaciones e instituciones. El sistema permite gestionar inventarios, empleados, proyectos, resguardos, tickets de mesa de ayuda y reportes mediante una arquitectura de microservicios.
+
+## Objetivo
+
+* Automatizar procesos internos para evitar el uso de archivos Excel.
+* Asegurar los datos sensibles de la organización.
+* Escalabilidad futura mediante microservicios.
+* Visualización de datos mediante dashboards y KPIs.
+
+## Tecnologías Utilizadas
+
+* **Frontend:**
+
+  * React.js
+  * Vite
+  * Chakra UI
+* **Backend:**
+
+  * Node.js + Express.js
+  * PostgreSQL
+  * API Rest
+* **Infraestructura:**
+
+  * Docker + Docker Compose
+  * Power BI para visualización de datos
+
+## Estructura del Proyecto
+
+```
+SistemaDISA/
+├── frontend/         → Proyecto React (Vite + Chakra UI)
+├── backend/          → Microservicios (Node.js APIs + Express)
+│   ├── inventario/
+│   ├── empleados/
+│   ├── resguardos/
+│   ├── usuarios/
+│   ├── mesa_ayuda/
+├── database/         → Scripts SQL y configuración inicial
+├── docker-compose.yml
+├── README.md
+```
+
+## Clonación del Proyecto
+
+Ubicación sugerida:
+
+`C:\Users\DELL\Documents\SistemaDISA`
+
+```
+git clone https://github.com/FerRico18/DISA.git
+cd DISA
+```
+
+## Configuración de Base de Datos
+
+* **Motor:** PostgreSQL
+* **Contraseña superusuario:** `DISAHP`
+* **Usuario/DB recomendado:** Crear usuario `disa_user` con permisos limitados para producción.
+
+## Despliegue Local
+
+1. Instalar Docker y Docker Compose.
+2. Ejecutar:
+
+```bash
+docker-compose up --build
+```
+
+3. Acceder a:
+
+   * Frontend: `http://localhost:5173`
+   * Backend API Gateway: Revisar el puerto configurado.
+
+## Pendientes del Proyecto
+
+* Actualización de scripts Python para inserción automática de datos falsos basados en los modelos de datos actuales.
+* Desarrollo completo de APIs por cada microservicio.
+* Corrección de Dockerfiles y pruebas de despliegue.
+* Visualización de datos en Power BI.
+* Importación de datos reales.
+* Implementación de carga masiva de datos desde Excel.
+* Desarrollo de dashboards internos.
+* Evaluación de servicios de nube para producción.
+* Pruebas de funcionamiento y despliegue.
+
+## Notas de Seguridad
+
+* Cambiar contraseñas y configuraciones antes de hacer un despliegue público.
+* Configurar archivos `.env` para cada microservicio correctamente.
+
+---
+
+**Repositorio principal:**
+
+[https://github.com/FerRico18/DISA.git](https://github.com/FerRico18/DISA.git)
