@@ -1,4 +1,4 @@
-# Sistema Interno DISA
+SISTEMA INTERNO DISA
 
 Sistema web para la automatización de procesos internos de la empresa DISA, especializada en distribución de equipos y accesorios para organizaciones e instituciones. El sistema permite gestionar inventarios, empleados, proyectos, resguardos, tickets de mesa de ayuda y reportes mediante una arquitectura de microservicios.
 
